@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1a1033">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>星宿タロット占い</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <!-- 星空背景 -->
+  <div class="stars" id="stars"></div>
+
+  <!-- ホーム画面 -->
+  <section class="screen active" id="screen-home">
+    <header class="hero">
+      <div class="moon">☽</div>
+      <h1>星宿タロット</h1>
+      <p class="subtitle">心を静めて、知りたいことを思い浮かべてください</p>
+    </header>
+
+    <div class="spread-list">
+      <button class="spread-card" data-spread="one">
+        <span class="spread-icon">🃏</span>
+        <span class="spread-name">ワンオラクル</span>
+        <span class="spread-desc">今日の運勢・YES/NO・ひとつの問い</span>
+      </button>
+      <button class="spread-card" data-spread="three">
+        <span class="spread-icon">🕒</span>
+        <span class="spread-name">スリーカード</span>
+        <span class="spread-desc">過去・現在・未来の流れを読む</span>
+      </button>
+      <button class="spread-card" data-spread="cross">
+        <span class="spread-icon">✨</span>
+        <span class="spread-name">ヘキサグラム</span>
+        <span class="spread-desc">悩みを多角的に占う本格スプレッド</span>
+      </button>
+    </div>
+
+    <footer class="home-footer">大アルカナ22枚・正位置/逆位置対応</footer>
+  </section>
+
+  <!-- 質問入力＆シャッフル画面 -->
+  <section class="screen" id="screen-shuffle">
+    <button class="back-btn" data-back>‹ もどる</button>
+    <div class="shuffle-inner">
+      <h2 id="shuffle-title">ワンオラクル</h2>
+      <input type="text" id="question-input" placeholder="占いたいことを入力（任意）" maxlength="60" autocomplete="off">
+      <div class="deck-stack" id="deck-stack" role="button" tabindex="0" aria-label="カードをシャッフルして引く">
+        <div class="deck-card"></div>
+        <div class="deck-card"></div>
+        <div class="deck-card"></div>
+        <div class="deck-card top">
+          <span class="deck-symbol">✦</span>
+        </div>
+      </div>
+      <p class="shuffle-hint" id="shuffle-hint">カードをタップしてシャッフル</p>
+    </div>
+  </section>
+
+  <!-- 結果画面 -->
+  <section class="screen" id="screen-result">
+    <button class="back-btn" data-back>‹ もどる</button>
+    <h2 id="result-title">占い結果</h2>
+    <p class="result-question" id="result-question"></p>
+    <div class="cards-area" id="cards-area"></div>
+    <div class="readings" id="readings"></div>
+    <button class="again-btn" id="again-btn">もう一度占う</button>
+  </section>
+
+  <!-- カード詳細モーダル -->
+  <div class="modal" id="modal">
+    <div class="modal-body" id="modal-body"></div>
+    <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
+  </div>
+</div>
+
+<script src="cards.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
